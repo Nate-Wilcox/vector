@@ -4,12 +4,13 @@
 
 #include "vector.h"
 
-#include <iostream>
-#include <string>
-#include <sstream>
 #include <cmath>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <unordered_map>
 
-using std::ostream;
+using std::istream;
 using std::istream;
 using std::string;
 using std::stringstream;
@@ -195,4 +196,23 @@ istream &Vector::Read(istream &input) {
     }
     return input;
 }
-
+Vector Vector::operator-() const {
+    //Create new vector result of same size as curVec
+    Vector result(_size);
+    //Loop through result negating as you iterate through _data
+    for (size_t i = 0; i < _size; ++i) {
+      result[i] = -_data[i];
+    }
+    //Return result vector
+    return result;
+}
+Vector Vector::operator*(double val) const {
+    //Create new vector result of same size as curVec
+    Vector result(_size);
+    //Loop through result scaling as you iterate through _data
+    for (size_t i = 0; i < _size; i++) {
+      result[i] = _data[i] * val;
+    }
+    //Return result vector
+    return result;
+}

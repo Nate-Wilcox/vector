@@ -130,6 +130,24 @@ int main(int argc, char* argv[]) {
 
     cout << "All unit tests passed" << endl;
 
+    cout << "Ahead are all tests for unary and scalar functions" << endl;
+
+    // Create a vector with three elements
+    Vector v1(3, new double[3]{1.0, 2.0, 3.0});
+
+    // Test the unary negation operator
+    Vector v2 = -v1; // v2 should be {-1.0, -2.0, -3.0}
+    std::cout << "Unary negation operator test: " << v2.ToString() << std::endl;
+
+    // Test the scalar multiplication operator
+    Vector v3 = v1 * 2.0; // v3 should be {2.0, 4.0, 6.0}
+    std::cout << "Scalar multiplication operator test: " << v3.ToString() << std::endl;
+
+    // Test chaining the operators
+    Vector v4 = -v1 * 2.0; // v4 should be {-2.0, -4.0, -6.0}
+    std::cout << "Chaining operators test: " << v4.ToString() << std::endl;
+
+
     return 0;
 }
 bool DoubleEquals(double a, double b, double epsilon){
